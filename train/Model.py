@@ -150,8 +150,8 @@ class TransformerEncoderReadout(layers.Layer):
         
 def GraphAttentionNetwork(atom_dim,hidden_units,num_heads,num_layers,batch_size=32,num_classes=1):
 
-        node_features = layers.Input((atom_dim), dtype="float32", name="atom_features")
-        pair_indices = layers.Input((2), dtype="int32", name="pair_indices")
+        node_features = layers.Input((atom_dim,), dtype="float32", name="atom_features")
+        pair_indices = layers.Input((2,), dtype="int32", name="pair_indices")
         molecule_indicator = layers.Input((), dtype="int32", name="molecule_indicator")
         
         preprocess = layers.Dense(hidden_units * num_heads, activation="relu")
