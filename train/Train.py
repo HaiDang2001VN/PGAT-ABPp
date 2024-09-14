@@ -71,8 +71,7 @@ early_stopping = EarlyStopping(
     monitor="val_binary_accuracy", min_delta=1e-2, patience=50, restore_best_weights=True
 )
 
-savebestmodel = keras.callbacks.ModelCheckpoint('pgat_abpp.h5', save_best_only=True, monitor='val_binary_accuracy', verbose=1, save_format='h5')  #path for saved model
-
+savebestmodel = keras.callbacks.ModelCheckpoint('pgat_abpp.keras', save_best_only=True, monitor='val_binary_accuracy', verbose=1)  #path for saved model
 
 # Build model
 gat_model = GraphAttentionNetwork(1024, HIDDEN_UNITS, NUM_HEADS, NUM_LAYERS, BATCH_SIZE)
